@@ -2,6 +2,7 @@ let timer = 30;
 let score = 0;
 let currentQuestionIndex = 0;
 let interval;
+let rockScore = 0;
 
 const questions = [
     { question: "What is the capital of France", answer: "Paris"},
@@ -15,10 +16,19 @@ const questionElement = document.getElementById("question");
 const answerElement = document.getElementById("answer");
 const scoreElement = document.getElementById("score");
 const startButton = document.getElementById("start-button");
+const rockElement = document.getElementById("rock");
+const rockScoreElement = document.getElementById("rock-counter");
+
+rockElement.addEventListener("click", () => {
+    rockScore++;
+    rockScoreElement.textContent = `You've Clicked me ${rockScore} Times!`
+})
 
 function startGame() {
+    if (currentQuestionIndex > questions.length) {
+        currentQuestionIndex = 0;
+    }
     score = 0;
-    currentQuestionIndex = 0;
     timer = 30;
     startButton.disabled = true;
     answerElement.disabled = false;
@@ -49,8 +59,10 @@ function loadQuestion() {
 }
 
 function checkAnswer() {
-    const userAnswer = answerElement.value;
-    if (userAnswer.toLowerCase() === questions[currentQuestionIndex].answer.toLowerCase()) {
+    const userAnswer = answerElement.value.trim().toLowerCase();
+    const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+
+    if (userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer)) {
         score++;
         scoreElement.textContent = `Score: ${score}`;
     }
@@ -69,6 +81,7 @@ function endGame() {
     timerElement.textContent = timer;
     startButton.textContent = "Restart";
     answerElement.classList.add("hidden")
+    currentQuestionIndex++;
 }
 
 startButton.addEventListener('click', startGame);
