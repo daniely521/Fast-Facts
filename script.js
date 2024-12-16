@@ -8,7 +8,26 @@ const questions = [
     { question: "What is the capital of France", answer: "Paris"},
     { question: "How many legs does a spider have", answer: "8"},
     { question: "What is 5+5?", answer: "10"},
-    { question: "Who wrote 'Romeo and Juliet'?", answer: "Shakespeare"}
+    { question: "Who wrote 'Romeo and Juliet'?", answer: "Shakespeare"},
+    { question: "What is the capital of Germany", answer: "Berlin"},
+    { question: "What is the chemical symbol for water?", answer: "H2O"},
+    { question: "What is 12x8?", answer: "96"},
+    { question: "Who was the first president of the USA", answer: "George Washington"},
+    { question: "What is the largest desert in the world", answer: "Sahara"},
+    { question: "What is the highest score in bowling?", answer: "300"},
+    { question: "What is the name of the wizarding school in Harry Potter", answer: "Hogwarts"},
+    { question: "What is the highest grossing movie of all time?", answer: "Avatar"},
+    { question: "Which band wrote 'Bohemian Rhapsody'?", answer: "Queen"},
+    { question: "What is the main ingredient in guacamole?", answer: "Avocado"},
+    { question: "Who invented the telephone?", answer: "Graham Bell"},
+    { question: "What is the fastest animal on land?", answer: "cheetah"},
+    { question: "Who created Mickey Mouse?", answer: "Walt Disney"},
+    { question: "What is the rarest blood type?", answer: "AB"},
+    { question: "What comes after a trillion?", answer: "quadrillion"},
+    { question: "What is the 'Friends' coffee shop called?", answer: "Central Perk"},
+    { question: "How many planets in our solar system?", answer: "8"},
+    { question: "Which mammal can fly?", answer: "bat"},
+    { question: "What is the biggest festival in Brazil", answer: "Carnival"}
 ];
 
 const timerElement = document.getElementById("timer");
