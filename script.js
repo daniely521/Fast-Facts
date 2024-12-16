@@ -47,7 +47,7 @@ function loadQuestion() {
 }
 
 function checkAnswer() {
-    const userAnswer = answerElement.textContent;
+    const userAnswer = answerElement.value;
     if (userAnswer.toLowerCase() === questions[currentQuestionIndex].answer.toLowerCase()) {
         score++;
         scoreElement.textContent = `Score: ${score}`;
@@ -62,6 +62,8 @@ function endGame() {
     questionElement.textContent = "Game over! Your final score is:" + score;
     startButton.disabled = false;
     answerElement.disabled = true;
+    timer = 30;
+    timerElement.textContent = timer;
 }
 
 startButton.addEventListener('click', startGame);
