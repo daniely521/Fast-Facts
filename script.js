@@ -24,6 +24,8 @@ function startGame() {
     answerElement.disabled = false;
     answerElement.value = "";
     scoreElement.textContent = `Score: ${score}`;
+    startButton.classList.add("hidden")
+    answerElement.classList.remove("hidden")
     loadQuestion();
     startTimer();
 }
@@ -59,11 +61,14 @@ function checkAnswer() {
 
 function endGame() {
     clearInterval(interval);
-    questionElement.textContent = "Game over! Your final score is:" + score;
+    questionElement.textContent = "Game over! Your final score is: " + score;
     startButton.disabled = false;
+    startButton.classList.remove("hidden")
     answerElement.disabled = true;
     timer = 30;
     timerElement.textContent = timer;
+    startButton.textContent = "Restart";
+    answerElement.classList.add("hidden")
 }
 
 startButton.addEventListener('click', startGame);
