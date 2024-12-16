@@ -97,7 +97,7 @@ function startGame() {
         currentQuestionIndex = 0;
     }
     score = 0;
-    timer = 3;
+    timer = 30;
     incorrectQuestions = [];
     startButton.disabled = true;
     answerElement.disabled = false;
