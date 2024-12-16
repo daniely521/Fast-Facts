@@ -59,5 +59,9 @@ h1 {
     position: fixed;
     display: flex;
     left: 955px;
-    bottom: 300px;
+    bottom: 280px;
+}
+
+#score {
+    margin-top: 10px;
 }
