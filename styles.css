@@ -91,3 +91,19 @@ h1 {
 #to-add:hover {
     background-color: rgb(243, 243, 189);
 }
+
+.question-cont{
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
+#questions-container{
+    background-color: antiquewhite;
+    width: 70%;
+    margin: auto;
+    padding-top: 50px;
+    border-radius: 20px;
+    height: 500px;
+    overflow: auto;
+}
