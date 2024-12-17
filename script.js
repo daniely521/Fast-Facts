@@ -243,7 +243,7 @@ function checkAnswer() {
     const userAnswer = answerElement.value.trim().toLowerCase();
     const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
 
-    if (userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer)) {
+    if ((userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer)) && userAnswer) {
         score++;
         scoreElement.textContent = `Score: ${score}`;
         timerElement.textContent = timer;
