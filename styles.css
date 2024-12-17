@@ -76,3 +76,18 @@ h1 {
     padding: 5px;
     width: 450px;
 }
+
+#to-add {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#to-add:hover {
+    background-color: rgb(243, 243, 189);
+}

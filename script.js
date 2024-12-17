@@ -4,7 +4,7 @@ let currentQuestionIndex = 0;
 let interval;
 let rockScore = 0;
 
-const questions = [
+const defaultQuestions = [
     { question: "What is the capital of France?", answer: "Paris"},
     { question: "How many legs does a spider have?", answer: "8"},
     { question: "What is 5+5?", answer: "10"},
@@ -77,6 +77,7 @@ const questions = [
 ];
 
 let incorrectQuestions = [];
+let questions = defaultQuestions;
 
 const timerElement = document.getElementById("timer");
 const questionElement = document.getElementById("question");
@@ -86,11 +87,30 @@ const startButton = document.getElementById("start-button");
 const rockElement = document.getElementById("rock");
 const rockScoreElement = document.getElementById("rock-counter");
 const incorrect = document.getElementById("incorrect-revealed");
+const addScreen = document.getElementById("adding-screen");
+const defaultButton = document.getElementById("default-button");
+const saveButton = document.getElementById("save-button");
+const newButton = document.getElementById("new-question");
+const addScreenButton = document.getElementById("to-add");
+const questionsList = document.getElementById("questions-container");
+
+renderQuestions();
 
 rockElement.addEventListener("click", () => {
     rockScore++;
     rockScoreElement.textContent = `You've Clicked me ${rockScore} Times!`
 })
+
+saveButton.addEventListener("click", () => {
+    console.log("save button clicked");
+    saveQuestions();
+});
+
+newButton.addEventListener("click", () => {
+    addNewQuestion();
+    console.log("new button clicked");
+});
+
 
 function startGame() {
     if (currentQuestionIndex > questions.length) {
@@ -180,3 +200,72 @@ function revealWrong() {
         incorrectAnswer.textContent = questions[Cquestion].question + "    -    " + questions[Cquestion].answer;
     });
 }
+
+function renderQuestions() {
+    questionsList.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        const questionsContainer = document.createElement("div");
+        questionsContainer.classList.add("question-cont");
+
+        const questionInput = document.createElement("input");
+        questionInput.type = "text";
+        questionInput.value = q.question;
+        questionInput.classList.add("question-input");
+
+        const answerInput = document.createElement("input");
+        answerInput.type = "text";
+        answerInput.value = q.answer;
+        answerInput.classList.add("answer-input")
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+            deleteQuestion(index);
+        });
+
+        questionsContainer.appendChild(questionInput);
+        questionsContainer.appendChild(answerInput);
+        questionsContainer.appendChild(deleteButton);
+
+        questionsList.appendChild(questionsContainer);
+    });
+
+    
+}
+
+function addNewQuestion() {
+    questions.push({ question: "", answer: "" });
+    renderQuestions()
+}
+
+function deleteQuestion(index) {
+    questions.splice(index, 1);
+    renderQuestions();
+}
+
+function saveQuestions() {
+    const updatedQuestions = [];
+    const questionContainers = document.querySelectorAll(".question-cont");
+
+    questionContainers.forEach((container) => {
+        const questionInput = container.querySelector(".question-input").value.trim();
+        const answerInput = container.querySelector(".answer-input").value.trim();
+
+        if (questionInput && answerInput) {
+            updatedQuestions.push({question: questionInput, answer: answerInput});
+        }
+    });
+
+    if (updatedQuestions.length === 0) {
+        alert("Please add at least one valid question and answer.");
+        return;
+    }
+
+    console.log("not updated:", questions);
+    questions = updatedQuestions;
+    console.log("updated questions:", questions);
+}
+
+
+
