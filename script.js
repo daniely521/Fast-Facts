@@ -310,6 +310,7 @@ function renderQuestions() {
         answerInput.classList.add("answer-input")
 
         const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button")
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
             deleteQuestion(index);

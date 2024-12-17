@@ -94,16 +94,100 @@ h1 {
 
 .question-cont{
     align-items: center;
-    width: 70%;
+    width: 40%;
     margin: auto;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
 }
 
-#questions-container{
+.question-input {
+    height: 30px;
+    width: 200px;
+    border-radius: 7px;
+    border:none;
+}
+
+.answer-input {
+    height: 30px;
+    width: 75px;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 7px;
+    border:none;
+}
+
+.delete-button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: red;
+}
+
+#second-cont{
     background-color: antiquewhite;
     width: 70%;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     border-radius: 20px;
     height: 500px;
     overflow: auto;
+}
+
+#clear-button {
+    position: relative;
+    width: 40%;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(252, 146, 146);
+    cursor:pointer;
+}
+
+#bottom-row {
+    margin-top: 25px;
+}
+
+#default-button {
+    height: 30px;
+    width: 10%;
+    border-radius: 10px;
+    border:none;
+    background-color: azure;
+    cursor: pointer;
+}
+
+#new-question {
+    height: 30px;
+    width: 15%;
+    border-radius: 10px;
+    border:none;
+    background-color: rgb(148, 170, 222);
+    cursor: pointer;
+}
+
+#save-button {
+    height: 30px;
+    width: 15%;
+    border-radius: 10px;
+    border:none;
+    background-color: rgb(175, 175, 255);
+    cursor: pointer;
+}
+
+#home-button {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 15pt;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(203, 94, 185);
 }
