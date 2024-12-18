@@ -214,9 +214,11 @@ function startGame() {
     answerElement.disabled = false;
     answerElement.value = "";
     scoreElement.textContent = `Score: ${score}`;
-    scoreElement.classList.remove('hidden')
-    startButton.classList.add("hidden")
-    answerElement.classList.remove("hidden")
+    scoreElement.classList.remove('hidden');
+    startButton.classList.add("hidden");
+    answerElement.classList.remove("hidden");
+    incorrect.classList.add("hidden");
+    document.getElementById("incorrect-answer").classList.add("hidden");
     loadQuestion();
     startTimer();
 }
@@ -328,7 +330,8 @@ function renderQuestions() {
 
 function addNewQuestion() {
     questions.push({ question: "", answer: "" });
-    renderQuestions()
+    renderQuestions();
+    document.getElementById("secret-button").classList.remove("hidden");
 }
 
 function deleteQuestion(index) {
